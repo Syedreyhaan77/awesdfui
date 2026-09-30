@@ -1,0 +1,152 @@
+/* Custom Industrial Additive Manufacturing Theme Styles */
+
+@layer components {
+  /* Sidebar Navigation Item */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all duration-150 w-full text-left cursor-pointer;
+  }
+  
+  .nav-item.active {
+    @apply text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 font-semibold shadow-sm shadow-cyan-950;
+  }
+
+  /* Metric Stat Card */
+  .stat-card {
+    @apply bg-slate-900 rounded-xl border border-slate-800 p-3.5 shadow-md hover:border-slate-700 transition duration-200 flex flex-col justify-between;
+  }
+}
+
+/* Tooltip popup styling */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0f172a;
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: nowrap;
+  z-index: 50;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* Status Indicator Dot Glows */
+.status-dot-available {
+  @apply w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)];
+}
+
+.status-dot-printing {
+  @apply w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(56,189,248,0.8)] animate-pulse;
+}
+
+.status-dot-maint {
+  @apply w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)];
+}
+
+/* Floorplan Card Glows */
+.floor-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floor-card:hover {
+  transform: translateY(-2px);
+}
+
+.floor-card-available {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(6, 78, 59, 0.2) 100%);
+}
+
+.floor-card-printing {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(12, 74, 110, 0.3) 100%);
+}
+
+.floor-card-maint {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(120, 53, 15, 0.2) 100%);
+}
+
+/* Presentation Mode Fullscreen Overrides */
+body.presentation-mode {
+  font-size: 110%;
+}
+
+body.presentation-mode header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+body.presentation-mode sidebar {
+  display: none !important;
+}
+
+/* Light Mode Overrides */
+html:not(.dark) body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html:not(.dark) header {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) aside {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) .stat-card,
+html:not(.dark) .bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-white {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-slate-400 {
+  color: #64748b !important;
+}
+
+html:not(.dark) .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+html:not(.dark) .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
